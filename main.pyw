@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 
-import os
-import turtle
-import tkinter as tk
-from tkinter import Image
-import sqlite3
-import random
-import time
+try:
+    import os
+    import turtle
+    import tkinter as tk
+    from tkinter import Image
+    import sqlite3
+    import random
+    import time
+    # from sıralama import sorting
+    import keyboard
+except ModuleNotFoundError as _err:
+    print(f"[*] {_err:} Please run \"installforwin.cmd\" before this program")
 
 point = 0
 tails = []
@@ -159,6 +164,19 @@ try:
             if head.direct != "stop":
                 break
         window.update()
+
+        # w/a/s/d
+        if keyboard.is_pressed('w'):
+            go_up()
+
+        if keyboard.is_pressed('a'):
+            go_left()
+
+        if keyboard.is_pressed('s'):
+            go_down()
+
+        if keyboard.is_pressed('d'):
+            go_right()
 
         def edit_time(secs):
             minute = 0
